@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impermeabilizantes Nat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --rojo-principal: #cc0000;
+            --rojo-oscuro: #a30000;
+            --rojo-claro: #ff4d4d;
+            --blanco: #ffffff;
+            --gris-claro: #f5f5f5;
+            --gris: #e0e0e0;
+            --gris-oscuro: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--gris-claro);
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--rojo-principal), var(--rojo-oscuro));
+            color: var(--blanco);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Secciones */
+        section {
+            padding: 3rem 0;
+            background-color: var(--blanco);
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--gris-claro);
+        }
+        
+        h2 {
+            color: var(--rojo-principal);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--rojo-principal);
+        }
+        
+        /* Listas */
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
+        li {
+            background-color: var(--blanco);
+            padding: 1.2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            flex: 1 1 250px;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid var(--rojo-principal);
+        }
+        
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        p.personalizada {
+            margin-bottom: 1rem;
+            text-align: justify;
+            font-size: 1.1rem;
+        }
+
+        /* Productos */
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .producto {
+            background: var(--blanco);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+        
+        .producto:hover {
+            transform: translateY(-5px);
+        }
+        
+        .producto-img {
+            height: 180px;
+            background-color: var(--gris);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--rojo-principal);
+            font-size: 3rem;
+        }
+        
+        .producto-info {
+            padding: 1.2rem;
+            text-align: center;
+        }
+        
+        /* Presupuesto */
+        .presupuesto {
+            text-align: center;
+            background: linear-gradient(to right, var(--rojo-principal), var(--rojo-oscuro));
+            color: var(--blanco);
+            padding: 2.5rem 1rem;
+            border-radius: 8px;
+        }
+        
+        .presupuesto h2 {
+            color: var(--blanco);
+            margin-bottom: 1rem;
+        }
+        
+        .presupuesto h2::after {
+            background-color: var(--blanco);
+        }
+        
+        /* Contacto */
+        .contacto {
+            background-color: var(--blanco);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        
+        .contacto p {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .contacto a {
+            color: var(--rojo-principal);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .contacto a:hover {
+            color: var(--rojo-oscuro);
+            text-decoration: underline;
+        }
+
+        /* Muestras */
+        .muestras {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--gris-oscuro);
+            color: var(--blanco);
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        /* From Uiverse.io by wilsondesouza */ 
+ul {
+  list-style: none;
+}
+
+.example-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.example-2 .icon-content {
+  margin: 0 10px;
+  position: relative;
+}
+.example-2 .icon-content .tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.example-2 .icon-content:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -50px;
+}
+.example-2 .icon-content a {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: #4d4d4d;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.example-2 .icon-content a:hover {
+  box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+}
+.example-2 .icon-content a svg {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+}
+.example-2 .icon-content a:hover {
+  color: white;
+}
+.example-2 .icon-content a .filled {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+}
+.example-2 .icon-content a:hover .filled {
+  height: 100%;
+}
+
+.example-2 .icon-content a[data-social="whatsapp"] .filled,
+.example-2 .icon-content a[data-social="whatsapp"] ~ .tooltip {
+  background-color: #128c7e;
+}
+
+.example-2 .icon-content a[data-social="facebook"] .filled,
+.example-2 .icon-content a[data-social="facebook"] ~ .tooltip {
+  background-color: #3b5998;
+}
+.example-2 .icon-content a[data-social="instagram"] .filled,
+.example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
+  background: linear-gradient(
+    45deg,
+    #405de6,
+    #5b51db,
+    #b33ab4,
+    #c135b4,
+    #e1306c,
+    #fd1f1f
+  );
+}
+.example-2 .icon-content a[data-social="youtube"] .filled,
+.example-2 .icon-content a[data-social="youtube"] ~ .tooltip {
+  background-color: #ff0000;
+}
+
+
+    /* From Uiverse.io by gharsh11032000 */ 
+.carding {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.carding img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.carding:hover {
+  transform: rotate(-5deg) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.carding__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.carding:hover .carding__content {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 1;
+}
+
+.carding__title {
+  margin: 0;
+  font-size: 13px;
+  color: #333;
+  font-weight: 700;
+}
+
+.carding__description {
+  margin: 10px 0 0;
+  font-size: 11px;
+  color: #777;
+  line-height: 1.4;
+}
+
+.carding:hover svg {
+  scale: 0;
+  transform: rotate(-45deg);
+}
+
+/*mejora*/
+ .productos-grid {
+                display: flex !important;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: stretch;
+                gap: 2rem;
+                margin-top: 2rem;
+            }
+            .producto {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background: var(--blanco);
+                border-radius: 12px;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+                padding: 1.5rem 1rem 2rem 1rem;
+                max-width: 320px;
+                width: 100%;
+                transition: transform 0.3s;
+            }
+            .producto:hover {
+                transform: translateY(-8px) scale(1.03);
+                box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            }
+            .producto-img {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 70px;
+                height: 70px;
+                background: var(--gris);
+                border-radius: 50%;
+                margin-bottom: 1rem;
+                font-size: 2.2rem;
+                color: var(--rojo-principal);
+            }
+            .producto-info {
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            .producto-info h3 {
+                font-size: 1.15rem;
+                color: var(--gris-oscuro);
+                margin: 0;
+            }
+            .carding {
+                margin-top: 0.5rem;
+                margin-bottom: 0;
+                width: 220px;
+                height: 170px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .carding img {
+                width: 120px;
+                height: 120px;
+                object-fit: cover;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+                background: #eee;
+            }
+            .carding__content {
+                text-align: center;
+                padding: 10px;
+            }
+            @media (max-width: 900px) {
+                .productos-grid {
+                    gap: 1.2rem;
+                }
+                .producto {
+                    max-width: 90vw;
+                }
+                .carding {
+                    width: 180px;
+                    height: 140px;
+                }
+                .carding img {
+                    width: 90px;
+                    height: 90px;
+                }
+            }
+            @media (max-width: 600px) {
+                .productos-grid {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .producto {
+                    max-width: 98vw;
+                }
+            }
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 2rem 0;
+            }
+            
+            .productos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Impermeabilizantes Nat</h1>
+            <p>Protección superior para tus superficies contra humedad y agua</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section>
+            <h2>¿Por qué elegir Impermeabilizantes Nat?</h2>
+            <ul>
+                <li><i class="fas fa-star"></i> Productos de alta calidad</li>
+                <li><i class="fas fa-paint-roller"></i> Fácil aplicación</li>
+                <li><i class="fas fa-shield-alt"></i> Durabilidad garantizada</li>
+                <li><i class="fas fa-user-tie"></i> Asesoría personalizada</li>
+            </ul>
+        </section>
+
+        <section>
+         <div class="mision-vision-wrapper" style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: stretch; margin-bottom: 2.5rem;">
+            <div class="card-mv" style="flex: 1 1 280px; max-width: 400px; background: linear-gradient(135deg, #fff 60%, #ffeded 100%); border-radius: 14px; box-shadow: 0 4px 18px rgba(204,0,0,0.08); padding: 2rem 1.5rem 1.5rem 1.5rem; display: flex; flex-direction: column; align-items: center; border-left: 6px solid var(--rojo-principal); position: relative;">
+                <div style="background: var(--rojo-principal); color: #fff; border-radius: 50%; width: 54px; height: 54px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(204,0,0,0.13);">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h2 style="color: var(--rojo-principal); font-size: 1.5rem; margin-bottom: 0.7rem;">Misión</h2>
+                <p class="personalizada" style="font-size: 1.08rem; color: #333; text-align: center;">Brindar soluciones efectivas e innovadoras en impermeabilización, garantizando la protección y durabilidad de las superficies de nuestros clientes.</p>
+            </div>                  
+            <div class="card-mv" style="flex: 1 1 280px; max-width: 400px; background: linear-gradient(135deg, #fff 60%, #ffe7f0 100%); border-radius: 14px; box-shadow: 0 4px 18px rgba(204,0,0,0.08); padding: 2rem 1.5rem 1.5rem 1.5rem; display: flex; flex-direction: column; align-items: center; border-left: 6px solid var(--rojo-claro); position: relative;">
+                <div style="background: var(--rojo-claro); color: #fff; border-radius: 50%; width: 54px; height: 54px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(255,77,77,0.13);">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h2 style="color: var(--rojo-claro); font-size: 1.5rem; margin-bottom: 0.7rem;">Visión</h2>
+                <p class="personalizada" style="font-size: 1.08rem; color: #333; text-align: center;">Ser reconocidos como líderes en el mercado local de impermeabilizantes, destacándonos por nuestra calidad, innovación y compromiso con la satisfacción del cliente.</p>
+            </div>
+        </div>
+        <h2>Valores</h2>
+            <ul>
+                <li>Calidad: Nos comprometemos a ofrecer productos y servicios de la más alta calidad.</li>
+                <li>Compromiso: Estamos dedicados a satisfacer las necesidades de nuestros clientes.</li>
+                <li>Responsabilidad: Actuamos con integridad y ética en todas nuestras operaciones.</li>
+                <li>Sostenibilidad: Promovemos prácticas que minimizan el impacto ambiental.</li>
+            </ul>
+        </section>
+
+        <section> 
+            <h2>Trabajos</h2>
+            <div class="carrusel-trabajos"></div>
+                <button class="carrusel-btn carrusel-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="carrusel-imagenes">
+                    <img src="1.jpg" alt="Trabajo 1" class="carrusel-img active">
+                    <img src="2.jpg" alt="Trabajo 2" class="carrusel-img">
+                    <img src="3.jpg" alt="Trabajo 3" class="carrusel-img">
+                    <img src="4.jpg" alt="Trabajo 4" class="carrusel-img">
+                    <img src="5.jpg" alt="Trabajo 5" class="carrusel-img">
+                </div>
+                <button class="carrusel-btn carrusel-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <script>
+                // Carrusel automático y manual
+                const imagenes = document.querySelectorAll('.carrusel-img');
+                const prevBtn = document.querySelector('.carrusel-prev');
+                const nextBtn = document.querySelector('.carrusel-next');
+                let index = 0;
+                let intervalo;
+
+                function mostrarImagen(i) {
+                    imagenes.forEach((img, idx) => {
+                        img.classList.toggle('active', idx === i);
+                    });
+                }
+
+                function siguienteImagen() {
+                    index = (index + 1) % imagenes.length;
+                    mostrarImagen(index);
+                }
+
+                function anteriorImagen() {
+                    index = (index - 1 + imagenes.length) % imagenes.length;
+                    mostrarImagen(index);
+                }
+
+                prevBtn.addEventListener('click', () => {
+                    anteriorImagen();
+                    reiniciarIntervalo();
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    siguienteImagen();
+                    reiniciarIntervalo();
+                });
+
+                function iniciarIntervalo() {
+                    intervalo = setInterval(siguienteImagen, 3000);
+                }
+
+                function reiniciarIntervalo() {
+                    clearInterval(intervalo);
+                    iniciarIntervalo();
+                }
+
+                iniciarIntervalo();
+
+                // Estilos carrusel
+                const style = document.createElement('style');
+                style.innerHTML = `
+                .carrusel-trabajos {
+                    position: relative;
+                    max-width: 600px;
+                    margin: 0 auto;
+                    overflow: hidden;
+                    padding: 1rem 0;
+                }
+                .carrusel-imagenes {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    height: 320px;
+                }
+                .carrusel-img {
+                    display: none;
+                    max-width: 100%;
+                    max-height: 300px;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+                    object-fit: cover;
+                    margin: 0 auto;
+                    transition: opacity 0.5s;
+                    position: absolute;
+                    left: 0; right: 0; top: 0; bottom: 0;
+                }
+                .carrusel-img.active {
+                    display: block;
+                    opacity: 1;
+                    z-index: 2;
+                }
+                .carrusel-btn {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: var(--rojo-principal);
+                    color: #fff;
+                    border: none;
+                    border-radius: 50%;
+                    width: 40px;
+                    height: 40px;
+                    cursor: pointer;
+                    font-size: 1.2rem;
+                    z-index: 3;
+                    opacity: 0.8;
+                    transition: background 0.3s;
+                }
+                .carrusel-btn:hover {
+                    background: var(--rojo-oscuro);
+                }
+                .carrusel-prev {
+                    left: 10px;
+                }
+                .carrusel-next {
+                    right: 10px;
+                }
+                @media (max-width: 700px) {
+                    .carrusel-imagenes { height: 180px; }
+                    .carrusel-img { max-height: 160px; }
+                }
+                `;
+                document.head.appendChild(style);
+            </script>
+        </section>
+        
+        <section>
+            <h2>Con lo que trabajamos</h2>
+            <div class="productos-grid">
+                <div class="producto">
+                    <div class="producto-img">
+                        <i class="fas fa-house"></i>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Impermeabilizante Acrílico</h3>
+                    </div>
+                    <div class="carding">
+                        <img src="Impermeabilizante acrilico .jpg" alt="Impermeabilizante Acrílico">
+                        <div class="carding__content">
+                            <p class="carding__description">Un impermeabilizante acrílico es un recubrimiento formulado principalmente con resinas acrílicas en base agua que, al secar, forma una película continua y elástica sobre la superficie para impedir el paso del agua.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="producto">
+                    <div class="producto-img">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Impermeabilizante Cementoso</h3>
+                    </div>
+                    <div class="carding">
+                        <img src="impercementoso.jpg" alt="Impermeabilizante Cementoso">
+                        <div class="carding__content">
+                            
+                            <p class="carding__description">Un impermeabilizante cementoso es una mezcla de cemento, agregados finos y aditivos (resinas, polímeros) que, al hidratarse, forma una capa monolítica adherida al sustrato. Se usa mucho en cisternas, muros de contención, sótanos, tanques y superficies de concreto.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="producto">
+                    <div class="producto-img">
+                        <i class="fas fa-tint-slash"></i>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Membranas Reforzada</h3>
+                    </div>
+                    <div class="carding">
+                        <img src="membrana reforzada.jpg" alt="Membrana Reforzada">
+                        <div class="carding__content">
+                            
+                            <p class="carding__description">La membrana reforzada “malla/membrana de refuerzo” que se coloca entre capas de impermeabilizante es básicamente un tejido delgado puede ser de poliéster no tejido, fibra de vidrio u otros polímeros que se incrusta dentro del recubrimiento acrílico, asfaltico u otro, para darle cuerpo y estabilidad.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="producto">
+                    <div class="producto-img">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Selladores y Reparadores</h3>
+                    </div>
+                    <div class="carding">
+                        <img src="loza.jpg" alt="Selladores y Reparadores">
+                        <div class="carding__content">
+                            
+                            <p class="carding__description">Un sellador o reparador para superficies de losa, concreto, muro o cubierta es un producto diseñado para “cerrar” poros, grietas o juntas y evitar que por ahí se infiltre agua o se degrade el material base. Según sea acrílico, poliuretano, asfáltico, epóxico, etc.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="presupuesto">
+            <h2>Nos ajustamos a tu presupuesto!!!!</h2>
+            <p>Ofrecemos soluciones de calidad que se adaptan a tus necesidades y posibilidades</p>
+        </section>
+
+        <section class="muestras"> 
+            <h2>Muestras de lo que hacemos</h2>
+            <video width="60%" height="auto" controls>
+                <source src="videomuestra.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de videos.
+            </video>
+        </section>
+        
+        <section class="contacto">
+            <h2>Contacto</h2>
+            <p>Para más información, contáctanos al correo: <a href="mailto:info@impermeabilizantesnaty.com">info@impermeabilizantesnaty.com</a></p>
+            <p>También puedes comunicarte con nuestro número de atención al cliente: <strong>(+52) 5582624060 / 5564196986</strong></p>
+
+            <!-- From Uiverse.io by wilsondesouza --> 
+<ul class="example-2">
+  <li class="icon-content">
+    <a
+      data-social="whatsapp"
+      href="https://wa.me/5583624060?text=Hola%20quiero%20más%20información"
+      target="_blank"
+      rel="noopener"
+      aria-label="WhatsApp"
+    >
+      <div class="filled"></div>
+      <svg
+        xml:space="preserve"
+        viewBox="0 0 24 24"
+        class="bi bi-whatsapp"
+        fill="currentColor"
+        height="24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="currentColor"
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+        ></path>
+      </svg>
+    </a>
+    <div class="tooltip">Whatsapp</div>
+  </li>
+  <li class="icon-content">
+    <a
+      data-social="facebook"
+      aria-label="Facebook"
+      href="https://www.facebook.com/"
+    >
+      <div class="filled"></div>
+      <svg
+        xml:space="preserve"
+        viewBox="0 0 24 24"
+        class="bi bi-facbook"
+        fill="currentColor"
+        height="24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="currentColor"
+          d="M23.9981 11.9991C23.9981 5.37216 18.626 0 11.9991 0C5.37216 0 0 5.37216 0 11.9991C0 17.9882 4.38789 22.9522 10.1242 23.8524V15.4676H7.07758V11.9991H10.1242V9.35553C10.1242 6.34826 11.9156 4.68714 14.6564 4.68714C15.9692 4.68714 17.3424 4.92149 17.3424 4.92149V7.87439H15.8294C14.3388 7.87439 13.8739 8.79933 13.8739 9.74824V11.9991H17.2018L16.6698 15.4676H13.8739V23.8524C19.6103 22.9522 23.9981 17.9882 23.9981 11.9991Z"
+        ></path>
+      </svg>
+    </a>
+    <div class="tooltip">Facebook</div>
+  </li>
+  <li class="icon-content">
+    <a
+      data-social="instagram"
+      aria-label="Instagram"
+      href="https://www.instagram.com/"
+    >
+      <div class="filled"></div>
+      <svg
+        xml:space="preserve"
+        viewBox="0 0 16 16"
+        class="bi bi-instagram"
+        fill="currentColor"
+        height="16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="currentColor"
+          d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+        ></path>
+      </svg>
+    </a>
+    <div class="tooltip">Instagram</div>
+  </li>
+</ul>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Impermeabilizantes Nat. Todos los derechos reservados.</p>
+        </div>
+
+
+    </footer>
+    
+    <script>
+        // Pequeño efecto de aparición para las secciones
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            });
+            
+            setTimeout(function() {
+                sections.forEach((section, index) => {
+                    setTimeout(() => {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }, 200 * index);
+                });
+            }, 300);
+        });
+    </script>
+</body>
+</html>
