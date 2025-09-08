@@ -110,6 +110,18 @@
             transition: transform 0.3s, box-shadow 0.3s;
             border-left: 4px solid var(--rojo-principal);
         }
+
+        li.personalizada {
+            background-color: var(--blanco);
+            padding: 1.2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            flex: 1 1 100px;
+            max-width: 100px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid var(--rojo-principal);
+        }
         
         li:hover {
             transform: translateY(-5px);
@@ -155,6 +167,13 @@
         .producto-info {
             padding: 1.2rem;
             text-align: center;
+        }
+
+        div.separador {
+            border-bottom: 2px solid var(--rojo-principal);
+            justify-content: center;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
         }
         
         /* Presupuesto */
@@ -219,6 +238,13 @@ ul {
   list-style: none;
 }
 
+h3.ne{
+    text-align: center;
+    color: var(--rojo-principal);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
 .example-2 {
   display: flex;
   justify-content: center;
@@ -233,7 +259,7 @@ ul {
   top: -30px;
   left: 50%;
   transform: translateX(-50%);
-  color: #fff;
+  color: #777;
   padding: 6px 10px;
   border-radius: 5px;
   opacity: 0;
@@ -256,7 +282,7 @@ ul {
   height: 50px;
   border-radius: 50%;
   color: #4d4d4d;
-  background-color: #fff;
+  background-color: #7b9a0b;
   transition: all 0.3s ease-in-out;
 }
 .example-2 .icon-content a:hover {
@@ -366,7 +392,7 @@ ul {
 
 .carding__description {
   margin: 10px 0 0;
-  font-size: 11px;
+  font-size: 9px;
   color: #777;
   line-height: 1.4;
 }
@@ -469,6 +495,249 @@ ul {
                 }
             }
 
+            /*mapa*/
+            /* From Uiverse.io by JaydipPrajapati1910 */ 
+.loader {
+  width: 44.8px;
+  height: 44.8px;
+  position: relative;
+  transform: rotate(45deg);
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50% 50% 0 50%;
+  background: #0000;
+  background-image: radial-gradient(circle 11.2px at 50% 50%,#0000 94%, #ff4747);
+}
+
+.loader:after {
+  animation: pulse-ytk0dhmd 1s infinite;
+  transform: perspective(336px) translateZ(0px);
+}
+
+@keyframes pulse-ytk0dhmd {
+  to {
+    transform: perspective(336px) translateZ(168px);
+    opacity: 0;
+  }
+}
+  
+/* From Uiverse.io by musashi-13 */ 
+.contenedor {
+    width: 100%;
+    height: 100%;
+}
+
+.contenedor div {
+    position: absolute;
+    height: 196px;
+    width: 132px;
+    background-color: #ebebeb;
+    border: 5px solid #ffffff;
+    border-bottom: 40px solid #ffffff;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    border-radius: 8%;
+    box-shadow: #c7c7c7 -2px 2px 4px;
+    transform-origin: bottom left;
+    scale: 1;
+    transition-duration: 200ms;
+}
+
+.contenedor div:hover {
+    scale: 1.1;
+}
+.contenedor img {
+    width: 100%;
+    height: auto;
+    border-radius: 8%;
+    box-shadow: #c7c7c7 -2px 2px 4px;
+    transition-duration: 200ms;
+    cursor: pointer;
+}
+
+/* From Uiverse.io by gharsh11032000 sección de mapas */ 
+.cars {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+/* contenedor que pone las tarjetas en fila */
+.mapas-wrapper {
+    display: flex;              /* acomoda los hijos en fila */
+    flex-wrap: wrap;            /* para que en pantallas chicas bajen */
+    gap: 1.5rem;                /* separación entre tarjetas */
+    justify-content: center;    /* centra horizontal */
+}
+
+.paramapas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--blanco);
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    padding: 1.5rem 1rem 2rem 1rem;
+    max-width: 320px;
+    width: 100%;
+    transition: transform 0.3s;
+}
+
+.paramapas:hover {
+    transform: translateY(-4px);
+}
+
+/* Modal overlay */
+.img-modal {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        display: none;
+        z-index: 99999;
+        background: rgba(0, 0, 0, 0.85);
+        align-items: center;
+        justify-content: center;
+}
+
+.img-modal.show {
+        display: flex;
+}
+
+.img-modal img {
+        max-width: 96vw;
+        max-height: 92vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        background: #000;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+}
+
+#closeModal {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 2.5rem;
+        color: #fff;
+        cursor: pointer;
+        z-index: 100000;
+}
+
+@media (max-width: 700px) {
+        .img-modal img {
+                width: max-content;
+                height: max-content;
+        }
+        #closeModal {
+                top: 10px;
+                right: 10px;
+                font-size: 2rem;
+        }
+}
+
+.ver-imagenes {
+    font-weight: bold;
+    color: #e80505;
+    cursor: pointer;
+}
+
+/*antes y despues*/
+
+/* From Uiverse.io by Sashank02 */ 
+.carta-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.carta {
+    padding: 20px;
+    width: 330px;
+    min-height: 370px;
+    border-radius: 20px;
+    background: #e8e8e8;
+    box-shadow: 5px 5px 6px #dadada,
+                             -5px -5px 6px #f6f6f6;
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carta:hover {
+    translate: 0 -10px;
+}
+
+.carta-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2e54a7;
+    margin: 15px 0 0 10px;
+}
+
+.carta-image {
+    width: 100%;
+    height: 200px;
+    background-color: #c9c9c9;
+    border-radius: 15px;
+    box-shadow: inset 8px 8px 10px #c3c3c3,
+                        inset -8px -8px 10px #cfcfcf;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carta-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+}
+
+.carta-body {
+    margin: 13px 0 0 10px;
+    color: rgb(31, 31, 31);
+    font-size: 15px;
+}
+
+.pie {
+    float: right;
+    margin: 28px 0 0 18px;
+    font-size: 13px;
+    color: #636363;
+}
+
+.by-name {
+    font-weight: 700;
+}
+
+@media (max-width: 800px) {
+    .carta-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+    }
+}
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -495,6 +764,11 @@ ul {
     </header>
     
     <div class="container">
+        <!-- Modal para mostrar imagen: AHORA ESTÁ FUERA DEL CONTENEDOR PRINCIPAL -->
+        <div class="img-modal" id="imgModal">
+            <span id="closeModal" style="position:fixed;top:30px;right:40px;font-size:2.5rem;color:#fff;cursor:pointer;z-index:10001;">&times;</span>
+            <img id="modalImg" src="" alt="" style="max-width:90vw;max-height:90vh;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.25);background:#fff;">
+        </div>
         <section>
             <h2>¿Por qué elegir Impermeabilizantes Nat?</h2>
             <ul>
@@ -531,6 +805,314 @@ ul {
             </ul>
         </section>
 
+        <section>
+            <h2>Con lo que trabajamos</h2>
+            <div class="productos-grid">
+                <div class="producto">
+                    <div class="producto-img">
+                        <i class="fas fa-house"></i>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Impermeabilizante Acrílico</h3>
+                        <h6 class="ver-imagenes">Presiona la imagen para más información</h6>
+                    </div>
+                    <div class="carding">
+                        <img src="Impermeabilizante acrilico .jpg" alt="Impermeabilizante Acrílico">
+                        <div class="carding__content">
+                            <p class="carding__description">Un impermeabilizante acrílico es un recubrimiento formulado principalmente con resinas acrílicas en base agua que, al secar, forma una película continua y elástica sobre la superficie para impedir el paso del agua.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="producto">
+                    <div class="producto-img">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Impermeabilizante Cementoso</h3>
+                        <h6 class="ver-imagenes">Presiona la imagen para más información</h6>
+                    </div>
+                    <div class="carding">
+                        <img src="impercementoso.jpg" alt="Impermeabilizante Cementoso">
+                        <div class="carding__content">
+                            
+                            <p class="carding__description">Un impermeabilizante cementoso es una mezcla de cemento, agregados finos y aditivos (resinas, polímeros) que, al hidratarse, forma una capa monolítica adherida al sustrato. Se usa mucho en cisternas, muros de contención, sótanos, tanques y superficies de concreto.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="producto">
+                    <div class="producto-img">
+                        <i class="fas fa-tint-slash"></i>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Membranas Reforzada</h3>
+                        <h6 class="ver-imagenes">Presiona la imagen para más información</h6>
+                    </div>
+                    <div class="carding">
+                        <img src="membrana reforzada.jpg" alt="Membrana Reforzada">
+                        <div class="carding__content">
+                            
+                            <p class="carding__description">La membrana reforzada “malla/membrana de refuerzo” que se coloca entre capas de impermeabilizante es básicamente un tejido delgado puede ser de poliéster no tejido, fibra de vidrio u otros polímeros que se incrusta dentro del recubrimiento acrílico, asfaltico u otro, para darle cuerpo y estabilidad.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="producto">
+                    <div class="producto-img">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Selladores y Reparadores</h3>
+                        <h6 class="ver-imagenes">Presiona la imagen para más información</h6>
+                    </div>
+                    <div class="carding">
+                        <img src="sella.jpg" alt="Selladores y Reparadores">
+                        <div class="carding__content">
+                            
+                            <p class="carding__description">Un sellador o reparador para superficies de losa, concreto, muro o cubierta es un producto diseñado para “cerrar” poros, grietas o juntas y evitar que por ahí se infiltre agua o se degrade el material base. Según sea acrílico, poliuretano, asfáltico, epóxico, etc.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </section>
+                       <h2>Proyectos Destacados en los diferentes estados</h2>
+            <div class="mapas-wrapper">
+
+                <!-- Proyecto Acapulco -->
+                <div class="paramapas">
+                    <div class="producto-info">
+                        <center>
+                            <div class="loader"></div>
+                            <h4>Acapulco</h4>
+                        </center>
+                        <div class="cars">
+                            <div class="contenedor" data-proyecto="acapulco">
+                                <div><img src="aca0.jpg" alt="Proyecto Acapulco 1"><h3>Limpieza de área</h3></div>
+                                <div><img src="aca2.jpg" alt="Proyecto Acapulco 3"><h3>Desprendimiento de impermeabilizante</h3></div>
+                                <div><img src="aca1.jpg" alt="Proyecto Acapulco 2"><h3>Recubrimiento</h3></div>
+                                <div><img src="aca3.jpg" alt="Proyecto Acapulco 4"><h3>Recubrimiento</h3></div>
+                                <div><img src="aca5.jpg" alt="Proyecto Acapulco 5"><h6>Suministro e instalación de membrana prefabricada refuerzo poliéster marca CuraCreto, 4.0 mm, color verde</h6></div>
+                                <div><img src="aca4.jpg" alt="Proyecto Acapulco 6"><h6>Suministro e instalación de membrana prefabricada refuerzo poliéster marca CuraCreto, 4.0 mm, color verde</h6></div>
+                            </div>
+                        </div>
+                        <div class="miniaturas" data-proyecto="acapulco"></div>
+                    </div>
+                </div>
+
+                <!-- Proyecto Tlalnepantla -->
+                <div class="paramapas">
+                    <div class="producto-info">
+                        <center>
+                            <div class="loader"></div>
+                            <h4>Tlalnepantla</h4>
+                        </center>
+                        <div class="cars">
+                            <div class="contenedor" data-proyecto="tlalnepantla">
+                                <div><img src="tla0.jpg" alt="Proyecto Tlalnepantla 1"><h3>Retiro de impermeabilizante</h3></div>
+                                <div><img src="tla1.jpg" alt="Proyecto Tlalnepantla 2"><h3></h3></div>
+                                <div><img src="tla2.jpg" alt="Proyecto Tlalnepantla 3"><h3>Aplicación de primario, base solvente</h3></div>
+                                <div><img src="tla3.jpg" alt="Proyecto Tlalnepantla 4"><h3></h3></div>
+                                <div><img src="tla4.jpg" alt="Proyecto Tlalnepantla 5"><h3>Sellado de grietas, con material de plasticreto</h3></div>
+                                <div><img src="tla5.jpg" alt="Proyecto Tlalnepantla 6"><h6>Suministro e instalación de membrana prefabricada refuerzo poliéster marca CuraCreto, 4.0 mm</h6></div>
+                                <div><img src="tla6.jpg" alt="Proyecto Tlalnepantla 7"></div>
+                            </div>
+                        </div>
+                        <div class="miniaturas" data-proyecto="tlalnepantla"></div>
+                    </div>
+                </div>
+
+                <!-- Proyecto Gustavo Madero -->
+                <div class="paramapas">
+                    <div class="producto-info">
+                        <center>
+                            <div class="loader"></div>
+                            <h4>Alcaldia Gustavo madero</h4>
+                        </center>
+                        <div class="cars">
+                            <div class="contenedor" data-proyecto="gustavo">
+                                <div><img src="gus0.jpg" alt="Proyecto Gustavo Madero 1"><h6>Aplicación de primario y limpieza de área</h6></div>
+                                <div><img src="gus1.jpg" alt="Proyecto Gustavo Madero 2"><h3>Sellado de grietas, con plasticreto</h3></div>
+                                <div><img src="gus2.jpg" alt="Proyecto Gustavo Madero 3"></div>
+                                <div><img src="gus3.jpg" alt="Proyecto Gustavo Madero 4"><h6>Suministro e instalación de membrana prefabricada refuerzo poliéster marca Naya, 4.0 mm </h6></div>
+                                <div><img src="gus4.jpg" alt="Proyecto Gustavo Madero 5"></div>
+                                <div><img src="gus5.jpg" alt="Proyecto Gustavo Madero 6"></div>
+                                <div><img src="gus6.jpg" alt="Proyecto Gustavo Madero 7"></div>
+                            </div>
+                        </div>
+                        <div class="miniaturas" data-proyecto="gustavo"></div>
+                    </div>
+                </div>
+
+                <!-- Proyecto Juquirillas Querétaro -->
+                <div class="paramapas">
+                    <div class="producto-info">
+                        <center>
+                            <div class="loader"></div>
+                            <h4>Juquirillas Querétaro</h4>
+                        </center>
+                        <div class="cars">
+                            <div class="contenedor" data-proyecto="juquirillas">
+                                <div><img src="que0.jpg" alt="Proyecto Juquirillas 1"><h3>Limpieza de área, aplicación de primario</h3></div>
+                                <div><img src="que1.jpg" alt="Proyecto Juquirillas 2"></div>
+                                <div><img src="que2.jpg" alt="Proyecto Juquirillas 3"></div>
+                                <div><img src="que5.jpg" alt="Proyecto Juquirillas 4"><h3>Acabado de lineas, con acrilico con blanco</h3></div>
+                                <div><img src="que4.jpg" alt="Proyecto Juquirillas 5"><h3>Acabado de lineas, con material acrilico</h3></div>
+                                <div><img src="que3.jpg" alt="Proyecto Juquirillas 6"></div>
+                            </div>
+                        </div>
+                        <div class="miniaturas" data-proyecto="juquirillas"></div>
+                    </div>
+                </div>
+
+                <!-- Proyecto Hospital Militar -->
+                <div class="paramapas">
+                    <div class="producto-info">
+                        <center>
+                            <div class="loader"></div>
+                            <h4>Hospital Militar</h4>
+                        </center>
+                        <div class="cars">
+                            <div class="contenedor" data-proyecto="militar">
+                                <div><img src="mil0.jpg" alt="Proyecto Hospital Militar 1"></div>
+                                <div><img src="mil1.jpg" alt="Proyecto Hospital Militar 2"></div>
+                                <div><img src="mil2.jpg" alt="Proyecto Hospital Militar 3"></div>
+                                <div><img src="mil3.jpg" alt="Proyecto Hospital Militar 4"></div>
+                                <div><img src="mil4.jpg" alt="Proyecto Hospital Militar 5"></div>
+                                <div><img src="mil5.jpg" alt="Proyecto Hospital Militar 6"></div>
+                                <div><img src="mil6.jpg" alt="Proyecto Hospital Militar 7"></div>
+                            </div>
+                        </div>
+                        <div class="miniaturas" data-proyecto="militar"></div>
+                    </div>
+                </div>
+
+                <!-- Proyecto Colegio Militar -->
+                <div class="paramapas">
+                    <div class="producto-info">
+                        <center>
+                            <div class="loader"></div>
+                            <h4>Colegio Militar</h4>
+                        </center>
+                        <div class="cars">
+                            <div class="contenedor" data-proyecto="colegio">
+                                <div><img src="col0.jpg" alt="Proyecto Colegio Militar 1"></div>
+                                <div><img src="col1.jpg" alt="Proyecto Colegio Militar 2"></div>
+                                <div><img src="col2.jpg" alt="Proyecto Colegio Militar 3"></div>
+                                <div><img src="col3.jpg" alt="Proyecto Colegio Militar 4"></div>
+                                <div><img src="col4.jpg" alt="Proyecto Colegio Militar 5"></div>
+                                <div><img src="col5.jpg" alt="Proyecto Colegio Militar 6"></div>
+                                <div><img src="col6.jpg" alt="Proyecto Colegio Militar 7"></div>
+                            </div>
+                        </div>
+                        <div class="miniaturas" data-proyecto="colegio"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Modal para ver imagen grande -->
+            <div id="modal-img" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); align-items:center; justify-content:center;">
+                <span id="cerrar-modal" style="position:absolute; top:30px; right:40px; color:#fff; font-size:2.5rem; cursor:pointer; z-index:10001;">&times;</span>
+                <img id="img-grande" src="" alt="Vista ampliada" style="max-width:90vw; max-height:85vh; border-radius:12px; box-shadow:0 4px 24px rgba(0,0,0,0.4);">
+            </div>
+
+            <style>
+                .miniaturas {
+                    display: flex;
+                    gap: 8px;
+                    justify-content: center;
+                    margin-top: 10px;
+                    flex-wrap: wrap;
+                }
+                .miniaturas img {
+                    width: 44px;
+                    height: 44px;
+                    object-fit: cover;
+                    border-radius: 6px;
+                    border: 2px solid #eee;
+                    cursor: pointer;
+                    transition: border 0.2s, transform 0.2s;
+                    background: #fafafa;
+                }
+                .miniaturas img.selected,
+                .miniaturas img:hover {
+                    border: 2px solid var(--rojo-principal);
+                    transform: scale(1.08);
+                }
+                #modal-img {
+                    display: flex;
+                }
+                #modal-img[style*="display: none"] {
+                    display: none !important;
+                }
+                @media (max-width: 600px) {
+                    .miniaturas img {
+                        width: 32px;
+                        height: 32px;
+                    }
+                }
+            </style>
+            <script>
+                // Generar miniaturas y funcionalidad de selección
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Para cada contenedor de proyecto
+                    document.querySelectorAll('.contenedor').forEach(function (contenedor) {
+                        const proyecto = contenedor.getAttribute('data-proyecto');
+                        const miniaturasDiv = document.querySelector('.miniaturas[data-proyecto="' + proyecto + '"]');
+                        const imagenes = contenedor.querySelectorAll('img');
+                        // Generar miniaturas
+                        imagenes.forEach((img, idx) => {
+                            const thumb = img.cloneNode();
+                            thumb.classList.add('miniatura');
+                            if (idx === 0) thumb.classList.add('selected');
+                            thumb.addEventListener('click', function () {
+                                // Oculta todas las imágenes menos la seleccionada
+                                imagenes.forEach((im, i) => {
+                                    im.parentElement.style.display = (i === idx) ? '' : 'none';
+                                });
+                                // Marcar miniatura seleccionada
+                                miniaturasDiv.querySelectorAll('img').forEach(t => t.classList.remove('selected'));
+                                thumb.classList.add('selected');
+                            });
+                            // Click para ver grande
+                            thumb.addEventListener('dblclick', function () {
+                                mostrarModal(img.src, img.alt);
+                            });
+                            // Click en imagen principal también abre modal
+                            img.style.cursor = 'pointer';
+                            img.addEventListener('click', function () {
+                                mostrarModal(img.src, img.alt);
+                            });
+                            miniaturasDiv.appendChild(thumb);
+                        });
+                        // Mostrar solo la primera imagen al inicio
+                        imagenes.forEach((im, i) => {
+                            im.parentElement.style.display = (i === 0) ? '' : 'none';
+                        });
+                    });
+
+                    // Modal de imagen grande
+                    function mostrarModal(src, alt) {
+                        const modal = document.getElementById('modal-img');
+                        const imgGrande = document.getElementById('img-grande');
+                        imgGrande.src = src;
+                        imgGrande.alt = alt;
+                        modal.style.display = 'flex';
+                    }
+                    document.getElementById('cerrar-modal').onclick = function () {
+                        document.getElementById('modal-img').style.display = 'none';
+                    };
+                    document.getElementById('modal-img').onclick = function (e) {
+                        if (e.target === this) this.style.display = 'none';
+                    };
+                    document.addEventListener('keydown', function (e) {
+                        if (e.key === 'Escape') document.getElementById('modal-img').style.display = 'none';
+                    });
+                });
+            </script>
+        
+                    </section>
+        </section>
+
         <section> 
             <h2>Trabajos</h2>
             <div class="carrusel-trabajos"></div>
@@ -541,6 +1123,41 @@ ul {
                     <img src="3.jpg" alt="Trabajo 3" class="carrusel-img">
                     <img src="4.jpg" alt="Trabajo 4" class="carrusel-img">
                     <img src="5.jpg" alt="Trabajo 5" class="carrusel-img">
+                    <img src="6.jpg" alt="Trabajo 6" class="carrusel-img">
+                    <img src="7.jpg" alt="Trabajo 7" class="carrusel-img">
+                    <img src="8.jpg" alt="Trabajo 8" class="carrusel-img">
+                    <img src="9.jpg" alt="Trabajo 9" class="carrusel-img">
+                    <img src="10.jpg" alt="Trabajo 10" class="carrusel-img">
+                    <img src="11.jpg" alt="Trabajo 11" class="carrusel-img">
+                    <img src="12.jpg" alt="Trabajo 12" class="carrusel-img">
+                    <img src="13.jpg" alt="Trabajo 13" class="carrusel-img">
+                    <img src="14.jpg" alt="Trabajo 14" class="carrusel-img">
+                    <img src="15.jpg" alt="Trabajo 15" class="carrusel-img">
+                    <img src="16.jpg" alt="Trabajo 16" class="carrusel-img">
+                    <img src="17.jpg" alt="Trabajo 17" class="carrusel-img">
+                    <img src="18.jpg" alt="Trabajo 18" class="carrusel-img">
+                    <img src="19.jpg" alt="Trabajo 19" class="carrusel-img">
+                    <img src="20.jpg" alt="Trabajo 20" class="carrusel-img">
+                    <img src="21.jpg" alt="Trabajo 21" class="carrusel-img">
+                    <img src="22.jpg" alt="Trabajo 22" class="carrusel-img">
+                    <img src="23.jpg" alt="Trabajo 23" class="carrusel-img">
+                    <img src="24.jpg" alt="Trabajo 24" class="carrusel-img">
+                    <img src="25.jpg" alt="Trabajo 25" class="carrusel-img">
+                    <img src="26.jpg" alt="Trabajo 26" class="carrusel-img">
+                    <img src="27.jpg" alt="Trabajo 27" class="carrusel-img">
+                    <img src="28.jpg" alt="Trabajo 28" class="carrusel-img">
+                    <img src="29.jpg" alt="Trabajo 29" class="carrusel-img">
+                    <img src="30.jpg" alt="Trabajo 30" class="carrusel-img">
+                    <img src="31.jpg" alt="Trabajo 31" class="carrusel-img">
+                    <img src="32.jpg" alt="Trabajo 32" class="carrusel-img">
+                    <img src="33.jpg" alt="Trabajo 33" class="carrusel-img">
+                    <img src="34.jpg" alt="Trabajo 34" class="carrusel-img">
+                    <img src="35.jpg" alt="Trabajo 35" class="carrusel-img">
+                    <img src="36.jpg" alt="Trabajo 36" class="carrusel-img">
+                    <img src="37.jpg" alt="Trabajo 37" class="carrusel-img">
+                    <img src="38.jpg" alt="Trabajo 38" class="carrusel-img">
+                    <img src="39.jpg" alt="Trabajo 39" class="carrusel-img">
+                    <img src="40.jpg" alt="Trabajo 40" class="carrusel-img">
                 </div>
                 <button class="carrusel-btn carrusel-next"><i class="fas fa-chevron-right"></i></button>
             </div>
@@ -657,70 +1274,30 @@ ul {
             </script>
         </section>
         
+        
         <section>
-            <h2>Con lo que trabajamos</h2>
-            <div class="productos-grid">
-                <div class="producto">
-                    <div class="producto-img">
-                        <i class="fas fa-house"></i>
-                    </div>
-                    <div class="producto-info">
-                        <h3>Impermeabilizante Acrílico</h3>
-                    </div>
-                    <div class="carding">
-                        <img src="Impermeabilizante acrilico .jpg" alt="Impermeabilizante Acrílico">
-                        <div class="carding__content">
-                            <p class="carding__description">Un impermeabilizante acrílico es un recubrimiento formulado principalmente con resinas acrílicas en base agua que, al secar, forma una película continua y elástica sobre la superficie para impedir el paso del agua.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="producto">
-                    <div class="producto-img">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <div class="producto-info">
-                        <h3>Impermeabilizante Cementoso</h3>
-                    </div>
-                    <div class="carding">
-                        <img src="impercementoso.jpg" alt="Impermeabilizante Cementoso">
-                        <div class="carding__content">
-                            
-                            <p class="carding__description">Un impermeabilizante cementoso es una mezcla de cemento, agregados finos y aditivos (resinas, polímeros) que, al hidratarse, forma una capa monolítica adherida al sustrato. Se usa mucho en cisternas, muros de contención, sótanos, tanques y superficies de concreto.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="producto">
-                    <div class="producto-img">
-                        <i class="fas fa-tint-slash"></i>
-                    </div>
-                    <div class="producto-info">
-                        <h3>Membranas Reforzada</h3>
-                    </div>
-                    <div class="carding">
-                        <img src="membrana reforzada.jpg" alt="Membrana Reforzada">
-                        <div class="carding__content">
-                            
-                            <p class="carding__description">La membrana reforzada “malla/membrana de refuerzo” que se coloca entre capas de impermeabilizante es básicamente un tejido delgado puede ser de poliéster no tejido, fibra de vidrio u otros polímeros que se incrusta dentro del recubrimiento acrílico, asfaltico u otro, para darle cuerpo y estabilidad.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="producto">
-                    <div class="producto-img">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <div class="producto-info">
-                        <h3>Selladores y Reparadores</h3>
-                    </div>
-                    <div class="carding">
-                        <img src="loza.jpg" alt="Selladores y Reparadores">
-                        <div class="carding__content">
-                            
-                            <p class="carding__description">Un sellador o reparador para superficies de losa, concreto, muro o cubierta es un producto diseñado para “cerrar” poros, grietas o juntas y evitar que por ahí se infiltre agua o se degrade el material base. Según sea acrílico, poliuretano, asfáltico, epóxico, etc.</p>
-                        </div>
-                    </div>
-                </div>
+            <h2>Comprometidos con la calidad</h2>
+            <!-- From Uiverse.io by Sashank02 --> 
+            <h3 class="ne">Nos esforzamos por ofrecer los mejores productos y servicios en impermeabilización.</h3>
+            <h3 class="ne">Garantía por escrito</h3><br>
+
+            <div class="carta-wrapper">
+            <div class="carta">
+                    <div class="carta-image"><img src="antes.jpg" alt="Antes"></div>
+                    <p class="carta-title">Antes</p>
+                    <p class="carta-body">
+                        Aplicación de primario base agua para mejorar la adherencia del impermeabilizante.
+                         </p>
+                   </div>
+                <div class="carta">
+                    <div class="carta-image"><img src="despues.jpg" alt="Después"></div>
+                    <p class="carta-title">Después</p>
+                    <p class="carta-body">
+                        Suministro e instalación de membrana prefabricada refuerzo poliéster marca Naya, 4.0 mm, color terracota.                     </p>
+                 </div>
             </div>
         </section>
+        
         
         <section class="presupuesto">
             <h2>Nos ajustamos a tu presupuesto!!!!</h2>
@@ -733,16 +1310,22 @@ ul {
                 <source src="videomuestra.mp4" type="video/mp4">
                 Tu navegador no soporta la reproducción de videos.
             </video>
+            <br>
+            <video width="20%" height="auto" controls>
+                <source src="videomuestra2.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de videos.
+            </video>
+            <h3 class="ne">Mira algunos de nuestros proyectos más recientes</h3>
         </section>
         
         <section class="contacto">
             <h2>Contacto</h2>
-            <p>Para más información, contáctanos al correo: <a href="mailto:info@impermeabilizantesnaty.com">info@impermeabilizantesnaty.com</a></p>
-            <p>También puedes comunicarte con nuestro número de atención al cliente: <strong>(+52) 5582624060 / 5564196986</strong></p>
+            <p>Para más información, contáctanos al correo: <a href="mailto:albertohernandezgarcia074@gmail.com">albertohernandezgarcia074@gmail.com</a></p>
+            <p>También puedes comunicarte con nuestro número de atención al cliente: <strong>(+52) 5583624060 / 5564196986  / número de casa 5594795631</strong></p>
 
             <!-- From Uiverse.io by wilsondesouza --> 
 <ul class="example-2">
-  <li class="icon-content">
+  <li class="personalizada">
     <a
       data-social="whatsapp"
       href="https://wa.me/5583624060?text=Hola%20quiero%20más%20información"
@@ -768,11 +1351,11 @@ ul {
     </a>
     <div class="tooltip">Whatsapp</div>
   </li>
-  <li class="icon-content">
+  <li class="personalizada">
     <a
       data-social="facebook"
       aria-label="Facebook"
-      href="https://www.facebook.com/"
+      href="https://www.facebook.com/share/16bAa7mJxB/"
     >
       <div class="filled"></div>
       <svg
@@ -791,30 +1374,6 @@ ul {
       </svg>
     </a>
     <div class="tooltip">Facebook</div>
-  </li>
-  <li class="icon-content">
-    <a
-      data-social="instagram"
-      aria-label="Instagram"
-      href="https://www.instagram.com/"
-    >
-      <div class="filled"></div>
-      <svg
-        xml:space="preserve"
-        viewBox="0 0 16 16"
-        class="bi bi-instagram"
-        fill="currentColor"
-        height="16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fill="currentColor"
-          d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
-        ></path>
-      </svg>
-    </a>
-    <div class="tooltip">Instagram</div>
   </li>
 </ul>
         </section>
